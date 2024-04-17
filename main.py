@@ -170,7 +170,7 @@ UI_full_rotation_button = tk.Button(
     text="Flip everything!",
     width=25,
     height=5,
-    bg="#444444",
+    bg="grey",
     fg="white",
     command=full_rotation
 )
@@ -180,7 +180,7 @@ UI_full_reversion_button = tk.Button(
     text="Unflip everything!",
     width=25,
     height=5,
-    bg="#444444",
+    bg="grey",
     fg="white",
     command=full_reversion
 )
