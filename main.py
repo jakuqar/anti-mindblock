@@ -50,9 +50,6 @@ def revert_monitor():
     else:
         print("No monitors detected.")
 
-# Skin inverting /todo/
-
-# UI
 
 root = tk.Tk()
 root.title('Anti Mindblock')
