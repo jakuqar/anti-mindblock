@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Version=0.1
+Name=Anti Mindblock
+Comment=Tool for removing mindblock in osu!
+Exec=main
+Terminal=false
+Categories=Games
