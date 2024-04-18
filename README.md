@@ -23,6 +23,14 @@ Implementation:
   Exec=/home/jakub/Documents/github/anti-mindblock/main.dist/main.bin
   Categories=Games;
   ```
+- After saving, make sure to make the file executable
+
+  ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/389fac36-2327-4bf8-b65d-35d68c971a34)
+- Save the file and move it to /usr/share/applications/
+  ```
+  cd /path/to/main.bin
+  sudo mv main.bin /usr/share/applications/
+  ```
 
 To select your skin, select your skin folder.
 Example: /home/USER/.local/share/osu-wine/osu!/Skins/RafisHDDT
