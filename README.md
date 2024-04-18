@@ -13,14 +13,15 @@ Installation:
 Implementation:
 - Create a new .desktop file
   ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/421b45ce-a7d2-4906-847a-4cacbf360a2e)
-- Open it in your text editor of choice
-  ```[Desktop Entry]
+- Open it in your text editor of choice and paste this text:
+  ```
+  [Desktop Entry]
   Type=Application
   Name=Anti Mindblock
   Comment=Tool for removing mindblock in osu!
   Exec=/home/jakub/Documents/github/anti-mindblock/main.dist/main.bin
-  Categories=Games;```
-
+  Categories=Games;
+  ```
 
 To select your skin, select your skin folder.
 Example: /home/USER/.local/share/osu-wine/osu!/Skins/RafisHDDT
