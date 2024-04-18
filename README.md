@@ -14,7 +14,7 @@ Implementation:
 - Create a new .desktop file
   
   ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/421b45ce-a7d2-4906-847a-4cacbf360a2e)
-- Open it in your text editor of choice and paste this text:
+- Open it in your text editor of choice and paste this text and edit the path in "Exec" to match yours:
   ```
   [Desktop Entry]
   Type=Application
@@ -26,11 +26,15 @@ Implementation:
 - After saving, make sure to make the file executable
 
   ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/389fac36-2327-4bf8-b65d-35d68c971a34)
-- Save the file and move it to /usr/share/applications/
+- Open a terminal in the same location
+- Move the .desktop file to /usr/share/applications/
   ```
-  cd /path/to/main.bin
-  sudo mv main.bin /usr/share/applications/
+  sudo mv AntiMindblock.desktop /usr/share/applications/
   ```
+- Anti Mindblock should now be available as an entry
+
+  ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/8e9e838c-d54d-424e-840d-63f55ba91224)
+
 
 To select your skin, select your skin folder.
 Example: /home/USER/.local/share/osu-wine/osu!/Skins/RafisHDDT
