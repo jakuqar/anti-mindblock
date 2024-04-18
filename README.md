@@ -38,3 +38,6 @@ Implementation:
 
 To select your skin, select your skin folder.
 Example: /home/USER/.local/share/osu-wine/osu!/Skins/RafisHDDT
+
+![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/a98783d9-00ac-491f-9438-8141d0d9feff)
+
