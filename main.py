@@ -7,6 +7,7 @@ import os
 from PIL import Image
 import time
 from pynput.keyboard import Controller, Key
+import json
 
 # Monitor inverting
 
@@ -35,7 +36,6 @@ def invert_monitor():
     monitors = detect_monitor_output()
     if monitors:
         for monitor in monitors:
-            print(monitor)
             def monitor_inversion_command():
                 os.system("xrandr --output " + monitor + " --rotate inverted")
             monitor_inversion_command()  
@@ -46,7 +46,6 @@ def revert_monitor():
     monitors = detect_monitor_output()
     if monitors:
         for monitor in monitors:
-            print(monitor)
             def monitor_reversion_command():
                 os.system("xrandr --output " + monitor + " --rotate normal")
             monitor_reversion_command()  
@@ -84,7 +83,7 @@ def select_folder():
     folder_path = filedialog.askdirectory()
     if folder_path:
         folder_var.set(folder_path)
-        print("Folder selected:", folder_path)
+        print("Skin selected:", folder_path)
 
 folder_var = tk.StringVar()
 
@@ -188,6 +187,31 @@ def focus_window():
     else:
         status_label.config(text="Window not found or could not be focused.")
 
+username_bytes = subprocess.check_output(["whoami"])
+username_str = username_bytes.decode("utf-8")
+first_line_username = username_str.split('\n')[0]
+otd_config_location = "/home/" + first_line_username + "/.config/OpenTabletDriver/settings.json"
+
+def tablet_inversion():
+    with open(otd_config_location, "r") as file:
+        config = json.load(file)
+
+    config["Profiles"][0]["AbsoluteModeSettings"]["Tablet"]["Rotation"] = 180.0
+    with open(otd_config_location, "w") as file:
+        json.dump(config, file, indent=2)
+        time.sleep(0.3)
+        os.system("systemctl restart --user opentabletdriver.service")
+
+def tablet_reversion():
+    with open(otd_config_location, "r") as file:
+        config = json.load(file)
+
+    config["Profiles"][0]["AbsoluteModeSettings"]["Tablet"]["Rotation"] = 0.0
+    with open(otd_config_location, "w") as file:
+        json.dump(config, file, indent=2)
+        time.sleep(0.3)
+        os.system("systemctl restart --user opentabletdriver.service")
+
 
 def full_rotation():
     detect_monitor_output()
@@ -196,7 +220,8 @@ def full_rotation():
     skin_processing()
     time.sleep(0.3)
     focus_window()
-
+    time.sleep(0.2)
+    tablet_inversion()
 
 def full_reversion():
     detect_monitor_output()
@@ -205,6 +230,8 @@ def full_reversion():
     skin_processing()
     time.sleep(0.3)
     focus_window()
+    time.sleep(0.2)
+    tablet_reversion()
 
 UI_full_rotation_button = tk.Button(
     text="Flip everything!",
