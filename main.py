@@ -6,6 +6,7 @@ import subprocess
 import os
 from PIL import Image
 import time
+from pynput.keyboard import Controller, Key
 
 # Monitor inverting
 
@@ -153,17 +154,57 @@ UI_skin_rotation_button = tk.Button(
 )
 UI_skin_rotation_button.pack()
 
+
+keyboard = Controller()
+
+
+def focus_window_by_class(window_class):
+    command = "wmctrl -l -x"
+    output = os.popen(command).read()
+    window_id_lines = output.strip().splitlines()
+    for line in window_id_lines:
+        parts = line.split()
+        if window_class in parts[2]:
+            os.system(f"wmctrl -i -a {parts[0]}")
+            return True
+    return False
+
+def focus_window():
+    global window_class
+    window_class = "osu!.exe"
+    focused = focus_window_by_class(window_class)
+    if focused:
+        time.sleep(0.5)
+        keyboard.press(Key.ctrl)
+        keyboard.press(Key.alt)
+        keyboard.press(Key.shift)
+        keyboard.press('s')
+        time.sleep(0.2)
+        keyboard.release('s')
+        keyboard.release(Key.shift)
+        keyboard.release(Key.alt)
+        keyboard.release(Key.ctrl)
+        time.sleep(0.2)
+    else:
+        status_label.config(text="Window not found or could not be focused.")
+
+
 def full_rotation():
     detect_monitor_output()
     invert_monitor()
     time.sleep(2)
     skin_processing()
+    time.sleep(0.3)
+    focus_window()
+
 
 def full_reversion():
     detect_monitor_output()
     revert_monitor()
     time.sleep(2)
     skin_processing()
+    time.sleep(0.3)
+    focus_window()
 
 UI_full_rotation_button = tk.Button(
     text="Flip everything!",
