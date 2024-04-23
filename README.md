@@ -5,6 +5,10 @@ Known issues:
 - All monitors flip on multi-monitor setups
 - Bad UI
 
+You might need to download dependencies in order for this program to work (search how to download them for your distro):
+- tkinter
+- pynput
+
 Installation:
 - Download the .zip file from Releases
 - Unzip the archive
