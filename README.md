@@ -8,6 +8,7 @@ Known issues:
 You might need to download dependencies in order for this program to work (search how to download them for your distro):
 - tkinter
 - pynput
+- xorg-xrandr
 
 Installation:
 - Download the .zip file from Releases
