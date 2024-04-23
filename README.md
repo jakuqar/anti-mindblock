@@ -19,7 +19,7 @@ Implementation:
 - Create a new .desktop file
   
   ![image](https://github.com/kinaterme/anti-mindblock/assets/61877280/421b45ce-a7d2-4906-847a-4cacbf360a2e)
-- Open it in your text editor of choice and paste this text and edit the path in "Exec" to match yours:
+- Open it in your text editor of choice, paste this text and edit the path in "Exec" to match yours:
   ```
   [Desktop Entry]
   Type=Application
